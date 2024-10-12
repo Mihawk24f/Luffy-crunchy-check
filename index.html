@@ -57,7 +57,7 @@
 
     function checkAccountValidity() {
         const [email, password] = currentAccount.split(':');
-        const loginUrl = 'https://www.crunchyroll.com/login'; // Change this to the actual login URL if different
+        const loginUrl = 'https://sso.crunchyroll.com/login?return_url=%2Fauthorize%3Fclient_id%3Dnoaihdevm_6iyg0a8l0q%26redirect_uri%3Dhttps%3A%2F%2Fwww.crunchyroll.com%2Fcallback%26response_type%3Dcookie%26state%3D%252F'; // Change this to the actual login URL if different
         
         fetch(loginUrl, {
             method: 'POST',
