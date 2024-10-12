@@ -1,128 +1,36 @@
-/* General Styling */
 body {
-    background: black;
-    margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
-}
-
-/* Responsive Header */
-.header {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.H, .N {
-    display: inline-block;
-    font-size: 10vw; /* Responsive to screen size */
-}
-
-.H {
-    background: #FF9900;
-    padding: 5px 10px;
-    color: black;
-}
-
-.N {
-    color: white;
-}
-
-/* Responsive Text */
-.intro-text {
-    color: orange;
-    font-size: 5vw;
-    line-height: 1.6;
-    text-align: center;
     margin: 20px;
+    padding: 20px;
 }
 
-/* Video Section */
-h3 {
-    color: white;
-    text-align: center;
-    font-size: 4vw;
+.account-validation {
+    border: 1px solid #ccc;
+    padding: 15px;
     margin-top: 20px;
 }
 
-/* Video Container */
-.video-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Ensure iframe fills parent container */
-.video-frame {
-    width: 100%;
-    height: auto;
-    max-width: 720px;
-    aspect-ratio: 16/9;
-    border: none;
-}
-
-/* Video Descriptions */
-.part1, .part2 {
-    color: orange;
-    font-size: 4vw;
-    line-height: 1.6;
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* Generate Account Section */
-.generate-section {
-    text-align: center;
-    margin-top: 30px;
-}
-
-#accountBox {
-    width: 80%;
+input[type="text"], input[type="password"] {
+    display: block;
+    margin: 10px 0;
     padding: 10px;
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #FF9900;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
     cursor: pointer;
-    color: black;
 }
 
-/* Media Queries for Larger Screens */
-@media (min-width: 768px) {
-    .H, .N {
-        font-size: 8vw;
-    }
-
-    .intro-text {
-        font-size: 3vw;
-    }
-
-    .part1, .part2 {
-        font-size: 2.5vw;
-    }
-
-    h3 {
-        font-size: 3vw;
-    }
+button:hover {
+    background-color: #45a049;
 }
 
-@media (min-width: 1024px) {
-    .H, .N {
-        font-size: 6vw;
-    }
-
-    .intro-text {
-        font-size: 2.5vw;
-    }
-
-    .part1, .part2 {
-        font-size: 2vw;
-    }
-
-    h3 {
-        font-size: 2.5vw;
-    }
+#result {
+    margin-top: 10px;
+    font-weight: bold;
 }
