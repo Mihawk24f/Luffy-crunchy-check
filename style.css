@@ -1,172 +1,111 @@
-/* General Styles */
+/* General Styling */
 body {
-    background: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
+    background: #111; /* Dark background for contrast */
     margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white; /* Default text color */
 }
 
-/* Header Styles */
+/* Header Styling */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: #1E1E1E;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    background: #222; /* Slightly lighter dark background */
 }
 
 .logo h1 {
-    font-size: 2.5em;
-    color: #FF9900;
+    font-size: 2.5rem; /* Responsive size */
     margin: 0;
 }
 
 nav ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    gap: 20px;
+}
+
+nav ul li {
+    margin-left: 20px; /* Space between menu items */
 }
 
 nav a {
-    color: white;
+    color: #FF9900; /* Menu link color */
     text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s;
 }
 
-nav a:hover {
-    color: #FF9900;
-}
-
-/* Intro Section */
+/* Intro Text */
 .intro {
     text-align: center;
-    padding: 40px;
-    background: #2C2C2C;
+    margin: 20px 0;
 }
 
-.intro p {
-    font-size: 1.5em;
-    color: orange;
+/* Search Container */
+.search-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#searchInput {
+    width: 80%; /* Full width on mobile */
+    max-width: 400px; /* Max width for larger screens */
+    padding: 10px;
+    font-size: 1rem; /* Font size */
+    border: 1px solid #FF9900; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default outline */
 }
 
 /* Videos Section */
 .videos {
-    padding: 20px;
-    background: #1E1E1E;
-}
-
-.videos h2 {
-    text-align: center;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px; /* Margin around video section */
 }
 
 .video-container {
+    margin-bottom: 20px; /* Space between videos */
     text-align: center;
-    margin-bottom: 20px;
+    width: 100%; /* Ensure full width */
 }
 
 .video-frame {
     width: 100%;
-    max-width: 720px;
-    height: 400px; /* Fixed height for better responsiveness */
-    border: none;
+    height: auto;
+    max-width: 720px; /* Max width of video */
+    aspect-ratio: 16/9; /* Aspect ratio for videos */
+    border: none; /* No border */
 }
 
+/* Video Title */
 .video-title {
-    color: orange;
-    font-size: 1.2em;
-    margin-top: 10px;
+    color: orange; /* Title color */
+    font-size: 1.2rem; /* Font size for titles */
+    margin-top: 10px; /* Space above title */
 }
 
-/* Admin Login Section */
-.admin-login {
-    text-align: center;
-    padding: 20px;
-    background: #2C2C2C;
-    margin: 20px auto;
-    border-radius: 8px;
-    max-width: 600px;
-}
-
-.admin-login h2 {
-    margin-bottom: 15px;
-}
-
-.admin-login input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #555;
-    border-radius: 4px;
-    background: #1E1E1E;
-    color: white;
-}
-
-.admin-login button {
-    padding: 10px 20px;
-    background: #FF9900;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.admin-login button:hover {
-    background: #FFC107;
-}
-
-/* Footer Styles */
+/* Footer Styling */
 footer {
     text-align: center;
-    padding: 20px;
-    background: #1E1E1E;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 10px 0;
+    background: #222; /* Background for footer */
 }
 
-/* Responsive Styles */
+/* Responsive Media Queries */
 @media (max-width: 768px) {
-    .video-frame {
-        height: 250px; /* Adjust height for smaller screens */
+    .logo h1 {
+        font-size: 2rem; /* Smaller logo on mobile */
     }
 
-    .intro p {
-        font-size: 1.2em; /* Adjust font size for smaller screens */
-    }
-
-    .video-title {
-        font-size: 1em; /* Adjust video title font size */
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav a {
-        font-size: 1em;
-        margin: 5px 0; /* Add space between links */
+    #searchInput {
+        width: 90%; /* Wider search input on mobile */
     }
 
     .video-title {
-        font-size: 0.9em; /* Further adjust for very small screens */
-    }
-
-    .admin-login input {
-        font-size: 0.9em; /* Adjust input sizes for smaller screens */
-    }
-
-    .admin-login button {
-        font-size: 0.9em; /* Adjust button sizes for smaller screens */
+        font-size: 1rem; /* Smaller titles on mobile */
     }
 }
