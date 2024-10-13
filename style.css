@@ -1,128 +1,130 @@
-/* General Styling */
+/* General body styling */
 body {
-    background: black;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
 }
 
-/* Responsive Header */
+/* Heading styling to center it */
 .header {
+    display: flex;
+    justify-content: center;
     text-align: center;
     margin-top: 20px;
+    background-color: #333; /* Dark background for contrast */
+    color: white; /* White text */
+    padding: 20px;
 }
 
-.H, .N {
-    display: inline-block;
-    font-size: 10vw; /* Responsive to screen size */
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 0;
 }
 
-.H {
-    background: #FF9900;
-    padding: 5px 10px;
+/* Menu bar styling */
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #444; /* Slightly lighter background than header */
+    padding: 10px;
+}
+
+.menu a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu a:hover {
+    background-color: #ddd;
     color: black;
 }
 
-.N {
+/* Admin login form styling */
+.admin-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.admin-login input {
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.admin-login button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
     color: white;
-}
-
-/* Responsive Text */
-.intro-text {
-    color: orange;
-    font-size: 5vw;
-    line-height: 1.6;
-    text-align: center;
-    margin: 20px;
-}
-
-/* Video Section */
-h3 {
-    color: white;
-    text-align: center;
-    font-size: 4vw;
-    margin-top: 20px;
-}
-
-/* Video Container */
-.video-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Ensure iframe fills parent container */
-.video-frame {
-    width: 100%;
-    height: auto;
-    max-width: 720px;
-    aspect-ratio: 16/9;
     border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* Video Descriptions */
-.part1, .part2 {
-    color: orange;
-    font-size: 4vw;
-    line-height: 1.6;
-    text-align: center;
+.admin-login label {
+    display: inline-block;
     margin-top: 10px;
 }
 
-/* Generate Account Section */
-.generate-section {
-    text-align: center;
-    margin-top: 30px;
+/* Video management form */
+.video-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
 }
 
-#accountBox {
-    width: 80%;
+.video-form input {
     padding: 10px;
+    margin: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.video-form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Video list styling */
+.videos {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.videos p {
     font-size: 1.2em;
     margin-bottom: 10px;
+    color: orange; /* Title color changed to orange */
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #FF9900;
-    border: none;
-    cursor: pointer;
-    color: black;
+.videos iframe {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
 }
 
-/* Media Queries for Larger Screens */
-@media (min-width: 768px) {
-    .H, .N {
-        font-size: 8vw;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
     }
 
-    .intro-text {
-        font-size: 3vw;
-    }
-
-    .part1, .part2 {
-        font-size: 2.5vw;
-    }
-
-    h3 {
-        font-size: 3vw;
-    }
-}
-
-@media (min-width: 1024px) {
-    .H, .N {
-        font-size: 6vw;
-    }
-
-    .intro-text {
-        font-size: 2.5vw;
-    }
-
-    .part1, .part2 {
-        font-size: 2vw;
-    }
-
-    h3 {
-        font-size: 2.5vw;
+    .videos iframe {
+        width: 100%;
+        height: 250px;
     }
 }
