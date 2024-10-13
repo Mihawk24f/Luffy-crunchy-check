@@ -83,6 +83,21 @@
             border: none;
             cursor: pointer;
         }
+
+        /* Video list styling */
+        .videos {
+            margin-top: 20px;
+        }
+
+        .videos h3, .videos p {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .videos iframe {
+            display: block;
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
@@ -94,9 +109,12 @@
     
     <div class="videos fade-in">
         <h3>Hot Videos:</h3>
-        <!-- Embedded video links from existing content -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
+        <!-- Restore previous embedded videos with titles -->
+        <p>Video Title 1: Amazing Video</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        
+        <p>Video Title 2: Another Great Video</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3JZ_D3ELwOQ" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <!-- Admin Login Page -->
@@ -153,7 +171,7 @@
             const videoContainer = document.querySelector('.videos');
 
             if (title && link) {
-                const videoHTML = `<h4>${title}</h4><iframe width="560" height="315" src="${link}" frameborder="0" allowfullscreen></iframe>`;
+                const videoHTML = `<p>${title}</p><iframe width="560" height="315" src="${link}" frameborder="0" allowfullscreen></iframe>`;
                 videoContainer.innerHTML += videoHTML;
                 alert('Video added successfully!');
             } else {
@@ -163,12 +181,12 @@
 
         function deleteVideo() {
             const title = prompt('Enter the title of the video to delete:');
-            const videos = document.querySelectorAll('.videos h4');
+            const videos = document.querySelectorAll('.videos p');
 
             videos.forEach(video => {
                 if (video.textContent === title) {
-                    video.nextElementSibling.remove();
-                    video.remove();
+                    video.nextElementSibling.remove(); // Remove the iframe
+                    video.remove(); // Remove the title
                     alert('Video deleted successfully!');
                 }
             });
