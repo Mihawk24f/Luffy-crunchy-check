@@ -9,23 +9,25 @@
 <body>
     <header>
         <div class="logo">
-            <h1>LUFFY HUB</h1>
+            <h1>LUFFY <span>HUB</span></h1>
         </div>
         <nav>
             <ul>
-                <li><a href="#videos">Videos</a></li>
-                <li><a href="#admin-login">Admin Login</a></li>
-                <li><a href="#video-upload">Add Video</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="admin.html">Admin Login</a></li>
+                <li><a href="javascript:void(0);" id="logout-button" style="display:none;">Logout</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="intro">
-        <p>Welcome to Luffy Hub! Here You Will Find Nothing, But Sometimes I Might Upload Some Crazy Things And Premium Accounts Of Crunchyroll...</p>
-    </section>
+    <div class="intro">
+        <p>Here You Will Find Nothing. But Sometime I Might Upload Some Crazy Things And Premium Accounts Of Crunchyroll And Bla Bla Bla...</p>
+    </div>
 
-    <section id="videos" class="videos">
+    <div class="videos">
         <h2>Hot Videos:</h2>
+        
+        <!-- Video Container -->
         <div class="video-container">
             <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" allowfullscreen="true"></iframe>
             <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 01</p> 
@@ -34,33 +36,28 @@
             <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyd?ff=1" allowfullscreen="true"></iframe>
             <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 02 | Final</p>
         </div>
-    </section>
-
-    <section id="admin-login" class="admin-login">
-        <h2>Admin Login</h2>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <label>
-                <input type="checkbox" id="rememberMe"> Remember Me
-            </label>
-            <button type="submit">Login</button>
-        </form>
-    </section>
-
-    <section id="video-upload" class="video-upload">
-        <h2>Add New Video</h2>
-        <form id="videoForm">
-            <input type="text" id="videoTitle" placeholder="Video Title" required>
-            <input type="text" id="videoLink" placeholder="Video Embed Link" required>
-            <button type="submit">Add Video</button>
-        </form>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2024 Luffy Hub. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Simulating admin login status
+        let isLoggedIn = false; // Change this to true to simulate admin being logged in.
+
+        // Check login status and show/hide logout button
+        const logoutButton = document.getElementById('logout-button');
+        if (isLoggedIn) {
+            logoutButton.style.display = 'block';
+        }
+
+        // Logout function (this will just reset the login status)
+        logoutButton.addEventListener('click', () => {
+            isLoggedIn = false;
+            alert('Logged out successfully!');
+            logoutButton.style.display = 'none';
+        });
+    </script>
 </body>
-</html>
+        </html>
