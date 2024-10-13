@@ -25,11 +25,14 @@
             <h3>Upload Video</h3>
             <form>
                 <label for="videoUrl">Video URL:</label>
-                <input type="text" id="videoUrl" name="videoUrl" required>
-                <label for="videoTitle">Title:</label>
-                <input type="text" id="videoTitle" name="videoTitle" required>
-                <label for="videoCategory">Category:</label>
-                <input type="text" id="videoCategory" name="videoCategory" required>
+                <input type="text" id="videoUrl" name="videoUrl" placeholder="Enter the video URL" required>
+                
+                <label for="videoTitle">Video Title:</label>
+                <input type="text" id="videoTitle" name="videoTitle" placeholder="Enter the video title" required>
+                
+                <label for="videoCategory">Video Category:</label>
+                <input type="text" id="videoCategory" name="videoCategory" placeholder="Enter the video category" required>
+                
                 <button type="submit" onclick="uploadVideo()">Upload Video</button>
             </form>
         </div>
