@@ -6,21 +6,131 @@
     <link href="style.css" rel="stylesheet">
     <title>LuffyHub</title>
     <style>
-        /* Styles remain unchanged */
-        .fade-in { opacity: 0; animation: fadeIn 2s forwards; }
-        @keyframes fadeIn { to { opacity: 1; } }
-        .header { display: flex; justify-content: center; text-align: center; margin-top: 20px; }
-        h1 { font-size: 2.5em; font-weight: bold; }
-        .admin-login, .video-form, .change-password { display: flex; flex-direction: column; align-items: center; }
-        .admin-login input, .video-form input, .change-password input, .video-form textarea { padding: 10px; margin: 5px; width: 300px; }
-        .admin-login button, .video-form button, .change-password button { padding: 10px 20px; border: none; cursor: pointer; }
-        .admin-login button { background-color: #4CAF50; color: white; }
-        .video-form button { background-color: #007BFF; color: white; }
-        .change-password button { background-color: #FF5733; color: white; }
-        .videos { margin-top: 20px; text-align: center; }
-        .videos p { font-size: 1.2em; margin-bottom: 10px; }
-        .videos iframe { display: block; margin: 20px auto; max-width: 100%; height: auto; }
-        @media (max-width: 768px) { .header h1 { font-size: 2em; } .videos iframe { width: 100%; height: 250px; } }
+        /* Dynamic animation styles */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Heading styling to center it */
+        .header {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        /* Admin login form styling */
+        .admin-login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        .admin-login input {
+            padding: 10px;
+            margin: 5px;
+            width: 300px;
+        }
+
+        .admin-login button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Video management form */
+        .video-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .video-form input, .video-form textarea {
+            padding: 10px;
+            margin: 5px;
+            width: 300px;
+        }
+
+        .video-form button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Password update form */
+        .change-password {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .change-password input {
+            padding: 10px;
+            margin: 5px;
+            width: 300px;
+        }
+
+        .change-password button {
+            padding: 10px 20px;
+            background-color: #FF5733;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Video list styling */
+        .videos {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .videos p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .videos iframe {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ensure titles are visible */
+        .videos p {
+            color: black; /* Make sure the text color is visible */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .videos iframe {
+                width: 100%;
+                height: 250px;
+            }
+        }
     </style>
 </head>
 <body>
