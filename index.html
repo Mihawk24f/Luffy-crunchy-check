@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Luffy Hub</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>LUFFY HUB</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#admin-login">Admin Login</a></li>
+                <li><a href="#video-upload">Add Video</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="intro">
+        <p>Welcome to Luffy Hub! Here You Will Find Nothing, But Sometimes I Might Upload Some Crazy Things And Premium Accounts Of Crunchyroll...</p>
+    </section>
+
+    <section id="videos" class="videos">
+        <h2>Hot Videos:</h2>
+        <div class="video-container">
+            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" allowfullscreen="true"></iframe>
+            <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 01</p> 
+        </div>
+        <div class="video-container">
+            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyd?ff=1" allowfullscreen="true"></iframe>
+            <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 02 | Final</p>
+        </div>
+    </section>
+
+    <section id="admin-login" class="admin-login">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <label>
+                <input type="checkbox" id="rememberMe"> Remember Me
+            </label>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <section id="video-upload" class="video-upload">
+        <h2>Add New Video</h2>
+        <form id="videoForm">
+            <input type="text" id="videoTitle" placeholder="Video Title" required>
+            <input type="text" id="videoLink" placeholder="Video Embed Link" required>
+            <button type="submit">Add Video</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Luffy Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

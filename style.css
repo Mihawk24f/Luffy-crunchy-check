@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    background: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #1E1E1E;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo h1 {
+    font-size: 2.5em;
+    color: #FF9900;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FF9900;
+}
+
+/* Intro Section */
+.intro {
+    text-align: center;
+    padding: 40px;
+    background: #2C2C2C;
+}
+
+.intro p {
+    font-size: 1.5em;
+    color: orange;
+}
+
+/* Videos Section */
+.videos {
+    padding: 20px;
+    background: #1E1E1E;
+}
+
+.videos h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-frame {
+    width: 100%;
+    max-width: 720px;
+    height: 400px;
+    border: none;
+}
+
+.video-title {
+    color: orange;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Admin Login Section */
+.admin-login, .video-upload {
+    text-align: center;
+    padding: 20px;
+    background: #2C2C2C;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+.admin-login h2, .video-upload h2 {
+    margin-bottom: 15px;
+}
+
+.admin-login input, .video-upload input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #1E1E1E;
+    color: white;
+}
+
+.admin-login button, .video-upload button {
+    padding: 10px 20px;
+    background: #FF9900;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.admin-login button:hover, .video-upload button:hover {
+    background: #FFC107;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1E1E1E;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .video-frame {
+        height: 250px; /* Adjust height for smaller screens */
+    }
+}
