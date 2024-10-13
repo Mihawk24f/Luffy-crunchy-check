@@ -19,21 +19,6 @@
         <p id="error-message" style="color:red;"></p>
     </div>
 
-    <script>
-        function validateLogin() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            // Simple username and password check (you can update these credentials)
-            if (username === 'admin' && password === 'password123') {
-                localStorage.setItem('isLoggedIn', true); // Store login state
-                window.location.href = 'dashboard.html'; // Redirect to the admin dashboard
-                return false; // Prevent form submission
-            } else {
-                document.getElementById('error-message').innerText = 'Invalid username or password';
-                return false; // Prevent form submission
-            }
-        }
-    </script>
+    <script src="video-script.js"></script>
 </body>
 </html>
