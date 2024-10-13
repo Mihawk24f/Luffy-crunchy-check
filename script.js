@@ -5,18 +5,23 @@ if (!localStorage.getItem('username') && !localStorage.getItem('password')) {
 }
 
 // Initialize videos from localStorage
-const videoList = JSON.parse(localStorage.getItem('videos')) || [];
-const videoListElement = document.getElementById('videos');
+const videoList = JSON.parse(localStorage.getItem('videos')) || [
+    { title: "Exclusive Hot Video | Premium Gold Exclusive Part 01", link: "https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" },
+    { title: "Exclusive Hot Video | Premium Gold Exclusive Part 02 | Final", link: "https://go.screenpal.com/player/cZ6XfBVWOyd?ff=1" },
+];
 
 // Function to render videos from localStorage
 function renderVideos() {
+    const videoListElement = document.getElementById('videos');
     videoListElement.innerHTML = '<h3>Hot Videos:</h3>';
     videoList.forEach(video => {
-        const videoHTML = `
-            <p>${video.title}</p>
-            <iframe width="100%" height="100%" style="border:0;" scrolling="no" 
-                src="${video.link}?controls=1" allowfullscreen="true"></iframe>`;
-        videoListElement.innerHTML += videoHTML;
+        const videoContainer = document.createElement('div');
+        videoContainer.className = 'video-container';
+        videoContainer.innerHTML = `
+            <iframe class="video-frame" src="${video.link}" allowfullscreen="true"></iframe>
+            <p class="part1">${video.title}</p>
+        `;
+        videoListElement.appendChild(videoContainer);
     });
 }
 
@@ -53,13 +58,7 @@ if (localStorage.getItem('isLoggedIn') === 'true') {
 // Video management logic
 function addVideo() {
     const title = document.getElementById('videoTitle').value;
-    let link = document.getElementById('videoLink').value;
-
-    // Check if the link is a YouTube direct link and convert it to an embed link
-    if (link.includes('youtube.com/watch')) {
-        const videoID = link.split('v=')[1];
-        link = `https://www.youtube.com/embed/${videoID}`;
-    }
+    const link = document.getElementById('videoLink').value;
 
     if (title && link) {
         videoList.push({ title: title, link: link });
@@ -72,13 +71,15 @@ function addVideo() {
 }
 
 function deleteVideo() {
-    const titleToDelete = prompt('Enter the title of the video to delete:');
-    const videoIndex = videoList.findIndex(video => video.title === titleToDelete);
+    const title = document.getElementById('videoTitle').value;
 
-    if (videoIndex > -1) {
-        videoList.splice(videoIndex, 1);
+    const index = videoList.findIndex(video => video.title === title);
+    if (index > -1) {
+        videoList.splice(index, 1);
         localStorage.setItem('videos', JSON.stringify(videoList));
         renderVideos();
         alert('Video deleted successfully!');
+    } else {
+        alert('Video not found!');
     }
 }
