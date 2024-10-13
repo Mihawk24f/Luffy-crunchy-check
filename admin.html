@@ -4,45 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
-    <title>Admin Login</title>
+    <title>Admin Panel - Luffy Hub</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>LUFFY <span>HUB</span></h1>
+            <h1>Admin Panel</h1>
         </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#" id="logout-button">Logout</a></li>
+                <li><a href="logout.html">Logout</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="admin-login">
-        <h2>Admin Login</h2>
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="login()">Login</button>
+    <div class="admin-container">
+        <h2>Upload Video</h2>
+        <form id="videoUploadForm">
+            <label for="videoTitle">Video Title:</label>
+            <input type="text" id="videoTitle" required>
+
+            <label for="videoUrl">Video URL:</label>
+            <input type="url" id="videoUrl" required>
+
+            <label for="videoCategory">Category:</label>
+            <input type="text" id="videoCategory" placeholder="Add new category" required>
+            <button type="button" onclick="addCategory()">Add Category</button>
+            <label for="categorySelect">Select Category:</label>
+            <select id="categorySelect" required>
+                <option value="">--Select Category--</option>
+            </select>
+
+            <button type="submit">Upload Video</button>
+        </form>
+
+        <h2>Uploaded Videos</h2>
+        <div id="videoList">
+            <!-- Dynamically added videos will appear here -->
+        </div>
     </div>
+
+    <script>
+        let categories = [];
+
+        document.getElementById('videoUploadForm').onsubmit = function (event) {
+            event.preventDefault();
+            uploadVideo();
+        };
+
+        function addCategory() {
+            const categoryInput = document.getElementById('videoCategory');
+            const categoryName = categoryInput.value.trim();
+
+            if (categoryName && !categories.includes(categoryName)) {
+                categories.push(categoryName);
+                const option = document.createElement('option');
+                option.value = categoryName;
+                option.text = categoryName;
+                document.getElementById('categorySelect').add(option);
+                categoryInput.value = '';
+            } else {
+                alert("Category already exists or is empty.");
+            }
+        }
+
+        function uploadVideo() {
+            const title = document.getElementById('videoTitle').value;
+            const url = document.getElementById('videoUrl').value;
+            const category = document.getElementById('categorySelect').value;
+
+            if (title && url && category) {
+                const videoDiv = document.createElement('div');
+                videoDiv.className = 'video-container';
+                videoDiv.innerHTML = `
+                    <iframe class="video-frame" src="${url}" allowfullscreen="true"></iframe>
+                    <p class="video-title">${title} (${category})</p>
+                `;
+                document.getElementById('videoList').appendChild(videoDiv);
+
+                document.getElementById('videoTitle').value = '';
+                document.getElementById('videoUrl').value = '';
+                document.getElementById('categorySelect').value = '';
+            } else {
+                alert("Please fill all fields.");
+            }
+        }
+    </script>
 
     <footer>
         <p>&copy; 2024 Luffy Hub. All rights reserved.</p>
     </footer>
-
-    <script>
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // Simulated login check
-            if (username === 'admin' && password === 'password') { // Change 'admin' and 'password' as needed
-                alert('Login successful!');
-                window.location.href = 'index.html'; // Redirect to homepage or admin dashboard
-            } else {
-                alert('Incorrect username or password');
-            }
-        }
-    </script>
 </body>
 </html>
