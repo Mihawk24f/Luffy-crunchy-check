@@ -31,12 +31,32 @@
             font-weight: bold;
         }
 
+        /* Menu bar styling */
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .menu a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
         /* Admin login form styling */
         .admin-login {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 100px;
+            margin-top: 50px;
         }
 
         .admin-login input {
@@ -53,6 +73,11 @@
             cursor: pointer;
         }
 
+        .admin-login label {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
         /* Video management form */
         .video-form {
             display: flex;
@@ -61,7 +86,7 @@
             margin-top: 50px;
         }
 
-        .video-form input, .video-form textarea {
+        .video-form input {
             padding: 10px;
             margin: 5px;
             width: 300px;
@@ -116,11 +141,6 @@
             height: auto;
         }
 
-        /* Ensure titles are visible */
-        .videos p {
-            color: orange; /* Make sure the text color is orange */
-        }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .header h1 {
@@ -135,21 +155,31 @@
     </style>
 </head>
 <body>
+    <!-- Menu bar -->
+    <div class="menu">
+        <a href="#">Home</a>
+        <a href="#videos">Videos</a>
+        <a href="#login">Login</a>
+    </div>
+
+    <!-- Page Heading -->
     <div class="header fade-in">
         <h1 class="N">LUFFY</h1><h1 class="H">HUB</h1>
     </div>
     
     <p class="intro-text fade-in">Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things...</p>
     
-    <div class="videos fade-in" id="videoList">
+    <!-- Videos Section -->
+    <div class="videos fade-in" id="videos">
         <h3>Hot Videos:</h3>
     </div>
 
     <!-- Admin Login Page -->
-    <div class="admin-login">
+    <div class="admin-login" id="login">
         <h2>Admin Login</h2>
         <input type="text" id="username" placeholder="Username" />
         <input type="password" id="password" placeholder="Password" />
+        <label><input type="checkbox" id="rememberMe"> Remember Me</label>
         <button onclick="login()">Login</button>
     </div>
 
@@ -178,11 +208,11 @@
 
         // Initialize videos from localStorage
         const videoList = JSON.parse(localStorage.getItem('videos')) || [];
-        const videoListElement = document.getElementById('videoList');
+        const videoListElement = document.getElementById('videos');
 
         // Function to render videos from localStorage
         function renderVideos() {
-            videoListElement.innerHTML = '';
+            videoListElement.innerHTML = '<h3>Hot Videos:</h3>';
             videoList.forEach(video => {
                 const videoHTML = `
                     <p>${video.title}</p>
@@ -202,20 +232,39 @@
             const password = document.getElementById('password').value;
             const storedUsername = localStorage.getItem('username');
             const storedPassword = localStorage.getItem('password');
+            const rememberMe = document.getElementById('rememberMe').checked;
 
             if (username === storedUsername && password === storedPassword) {
                 document.querySelector('.video-form').style.display = 'flex';
                 document.querySelector('.change-password').style.display = 'flex';
                 document.querySelector('.admin-login').style.display = 'none';
+
+                // If "Remember Me" is checked, store the login state
+                if (rememberMe) {
+                    localStorage.setItem('isLoggedIn', 'true');
+                }
             } else {
                 alert('Invalid login credentials!');
             }
         }
 
+        // Check if the user is already logged in
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            document.querySelector('.video-form').style.display = 'flex';
+            document.querySelector('.change-password').style.display = 'flex';
+            document.querySelector('.admin-login').style.display = 'none';
+        }
+
         // Video management logic
         function addVideo() {
             const title = document.getElementById('videoTitle').value;
-            const link = document.getElementById('videoLink').value;
+            let link = document.getElementById('videoLink').value;
+
+            // Check if the link is a YouTube direct link and convert it to an embed link
+            if (link.includes('youtube.com/watch')) {
+                const videoID = link.split('v=')[1];
+                link = `https://www.youtube.com/embed/${videoID}`;
+            }
 
             if (title && link) {
                 videoList.push({ title: title, link: link });
@@ -236,22 +285,3 @@
                 localStorage.setItem('videos', JSON.stringify(videoList));
                 renderVideos();
                 alert('Video deleted successfully!');
-            } else {
-                alert('Video title not found!');
-            }
-        }
-
-        // Change password logic
-        function changePassword() {
-            const newPassword = document.getElementById('newPassword').value;
-
-            if (newPassword) {
-                localStorage.setItem('password', newPassword);
-                alert('Password updated successfully!');
-            } else {
-                alert('Please enter a new password!');
-            }
-        }
-    </script>
-</body>
-</html>
