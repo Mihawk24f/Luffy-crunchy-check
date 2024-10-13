@@ -77,8 +77,10 @@ nav ul li a {
 
 .video-frame {
     width: 100%;
-    max-width: 720px;
-    height: 405px;
+    max-width: 720px;  /* Ensure it doesn't exceed 720px */
+    aspect-ratio: 16/9;
+    height: auto;
+    border: none;
 }
 
 .video-title {
@@ -100,12 +102,19 @@ nav ul li a {
 
 .upload-section {
     margin-top: 20px;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .upload-section input {
     margin-bottom: 10px;
     padding: 10px;
     width: 100%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
 }
 
 .upload-section button {
@@ -114,6 +123,21 @@ nav ul li a {
     border: none;
     color: white;
     cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Label Styling */
+label {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.upload-section h3 {
+    color: orange;
+    text-align: left;
 }
 
 /* Video List */
