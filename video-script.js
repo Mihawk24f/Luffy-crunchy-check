@@ -24,21 +24,6 @@ function logout() {
     window.location.href = 'index.html'; // Redirect to home after logout
 }
 
-// Video Search Functionality
-function searchVideos() {
-    const searchInput = document.getElementById('searchInput').value.toLowerCase();
-    const videos = document.getElementsByClassName('video-container');
-
-    for (let i = 0; i < videos.length; i++) {
-        const title = videos[i].getAttribute('data-title').toLowerCase();
-        if (title.includes(searchInput)) {
-            videos[i].style.display = 'block';
-        } else {
-            videos[i].style.display = 'none';
-        }
-    }
-}
-
 // Upload Video Functionality
 function uploadVideo(event) {
     event.preventDefault(); // Prevent form submission
@@ -86,4 +71,9 @@ function renderVideos() {
 // Render videos on page load
 if (window.location.pathname === '/index.html') {
     renderVideos();
-                             }
+}
+
+// Also render videos on the dashboard
+if (window.location.pathname === '/dashboard.html') {
+    renderVideos();
+}
