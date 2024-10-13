@@ -9,16 +9,13 @@
 <body>
     <div class="login-container">
         <h2>Admin Login</h2>
-        <form id="loginForm" onsubmit="return validateLogin()">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+        <form onsubmit="return validateLogin()">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <div id="error-message" class="error"></div>
             <button type="submit">Login</button>
         </form>
-        <p id="error-message" style="color:red;"></p>
     </div>
-
     <script src="video-script.js"></script>
 </body>
 </html>
