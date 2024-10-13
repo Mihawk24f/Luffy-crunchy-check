@@ -4,31 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
-    <title>Video Hub</title>
+    <title>Luffy Hub</title>
 </head>
 <body>
     <header>
+        <h1 class="site-title">LUFFY HUB</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="admin.html">Admin Login</a></li>
             </ul>
         </nav>
-        <h1 class="site-title">Video Hub</h1>
     </header>
 
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search for videos...">
-        <button onclick="searchVideos()">Search</button>
-    </div>
-
     <div class="videos">
-        <h3>Hot Videos:</h3>
-
-        <!-- Video Container (Example) -->
-        <div class="video-container" data-title="Exclusive Hot Video Part 1">
-            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" allowfullscreen="true"></iframe>
-            <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 01</p>
+        <h3>Uploaded Videos:</h3>
+        <div id="videoList">
+            <!-- Videos will be dynamically filled here -->
         </div>
     </div>
 
