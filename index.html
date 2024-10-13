@@ -142,12 +142,16 @@
     
     <div class="videos fade-in">
         <h3>Hot Videos:</h3>
-        <!-- Restored previous embedded videos and titles -->
-        <p id="video1-title">One Piece Episode 1</p>
-        <iframe id="video1" width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+        <!-- Existing embedded videos -->
+        <p>One Piece Episode 1</p>
+        <iframe width="100%" height="100%" style="border:0;" scrolling="no" 
+                src="https://go.screenpal.com/player/cZ6XfBVWOyJ?width=100%&height=100%&ff=1&title=0&controls=0" 
+                allowfullscreen="true"></iframe>
         
-        <p id="video2-title">One Piece Episode 2</p>
-        <iframe id="video2" width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+        <p>One Piece Episode 2</p>
+        <iframe width="100%" height="100%" style="border:0;" scrolling="no" 
+                src="https://go.screenpal.com/player/cZ6XfBVWOyJ?width=100%&height=100%&ff=1&title=0&controls=0" 
+                allowfullscreen="true"></iframe>
     </div>
 
     <!-- Admin Login Page -->
@@ -162,7 +166,7 @@
     <div class="video-form" style="display:none;">
         <h2>Manage Videos</h2>
         <input type="text" id="videoTitle" placeholder="Video Title" />
-        <textarea id="videoLink" placeholder="Embedded Video Link"></textarea>
+        <input type="text" id="videoLink" placeholder="Video URL" />
         <button onclick="addVideo()">Add Video</button>
         <button onclick="deleteVideo()">Delete Video</button>
     </div>
@@ -204,8 +208,12 @@
             const videoContainer = document.querySelector('.videos');
 
             if (title && link) {
-                const videoHTML = `<p>${title}</p><iframe width="560" height="315" src="${link}" frameborder="0" allowfullscreen></iframe>`;
-                videoContainer.innerHTML += videoHTML;
+                const videoHTML = `<p>${title}</p>`;
+                const iframe = `<iframe width="100%" height="100%" style="border:0;" scrolling="no" 
+                                src="${link}?width=100%&height=100%&ff=1&title=0&controls=0" 
+                                allowfullscreen="true"></iframe>`;
+
+                videoContainer.innerHTML += videoHTML + iframe;
                 alert('Video added successfully!');
             } else {
                 alert('Please fill out both fields!');
