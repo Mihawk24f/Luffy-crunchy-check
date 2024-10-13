@@ -106,6 +106,7 @@
         .videos p {
             font-size: 1.2em;
             margin-bottom: 10px;
+            color: orange; /* Change title color to orange */
         }
 
         .videos iframe {
@@ -117,7 +118,7 @@
 
         /* Ensure titles are visible */
         .videos p {
-            color: black; /* Make sure the text color is visible */
+            color: orange; /* Make sure the text color is orange */
         }
 
         /* Responsive adjustments */
@@ -145,12 +146,12 @@
         <!-- Existing embedded videos -->
         <p>One Piece Episode 1</p>
         <iframe width="100%" height="100%" style="border:0;" scrolling="no" 
-                src="https://go.screenpal.com/player/cZ6XfBVWOyJ?width=100%&height=100%&ff=1&title=0&controls=0" 
+                src="https://go.screenpal.com/player/cZ6XfBVWOyJ?width=100%&height=100%&ff=1&title=0&controls=1" 
                 allowfullscreen="true"></iframe>
         
         <p>One Piece Episode 2</p>
         <iframe width="100%" height="100%" style="border:0;" scrolling="no" 
-                src="https://go.screenpal.com/player/cZ6XfBVWOyJ?width=100%&height=100%&ff=1&title=0&controls=0" 
+                src="https://go.screenpal.com/player/cZ6XfBVWOyJ?width=100%&height=100%&ff=1&title=0&controls=1" 
                 allowfullscreen="true"></iframe>
     </div>
 
@@ -210,7 +211,7 @@
             if (title && link) {
                 const videoHTML = `<p>${title}</p>`;
                 const iframe = `<iframe width="100%" height="100%" style="border:0;" scrolling="no" 
-                                src="${link}?width=100%&height=100%&ff=1&title=0&controls=0" 
+                                src="${link}?width=100%&height=100%&ff=1&title=0&controls=1" 
                                 allowfullscreen="true"></iframe>`;
 
                 videoContainer.innerHTML += videoHTML + iframe;
