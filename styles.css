@@ -37,9 +37,13 @@ body {
 }
 
 /* Video Section */
-h3 {
-    color: white;
+.videos {
     text-align: center;
+    margin-top: 20px;
+}
+
+.videos h3 {
+    color: white;
     font-size: 4vw;
     margin-top: 20px;
 }
@@ -68,7 +72,92 @@ h3 {
     margin-top: 10px;
 }
 
-/* Media Queries for Larger Screens */
+/* Admin Login Styling */
+.admin-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 8px;
+}
+
+.admin-login h2 {
+    color: #FF9900;
+    margin-bottom: 20px;
+}
+
+.admin-login input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.admin-login label {
+    color: white;
+    margin-top: 10px;
+}
+
+.admin-login button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-login button:hover {
+    background-color: #45a049;
+}
+
+/* Video Management Form Styling */
+.video-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+}
+
+.video-form h2 {
+    color: #FF9900;
+    margin-bottom: 20px;
+}
+
+.video-form input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.video-form button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 48%;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.video-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments */
 @media (min-width: 768px) {
     .H, .N {
         font-size: 8vw;
@@ -82,7 +171,7 @@ h3 {
         font-size: 2.5vw;
     }
 
-    h3 {
+    .videos h3 {
         font-size: 3vw;
     }
 }
@@ -100,65 +189,7 @@ h3 {
         font-size: 2vw;
     }
 
-    h3 {
+    .videos h3 {
         font-size: 2.5vw;
     }
-}
-
-/* Admin Login and Video Management */
-.admin-login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-}
-
-.admin-login input {
-    padding: 10px;
-    margin: 5px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.admin-login button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Video management form */
-.video-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-}
-
-.video-form input {
-    padding: 10px;
-    margin: 5px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.video-form button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Video list */
-.videos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
 }
