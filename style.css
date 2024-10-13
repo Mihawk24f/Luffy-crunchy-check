@@ -4,17 +4,17 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    color: white;
 }
 
-/* Header */
+/* Header and Navigation */
 header {
-    background: #333;
-    padding: 20px;
     text-align: center;
+    padding: 20px;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
@@ -23,51 +23,27 @@ nav ul li {
     margin: 0 10px;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
 .site-title {
-    color: orange;
-    font-size: 2.5rem;
+    font-size: 2.5em;
 }
 
-/* Login Form */
-.login-container {
+/* Login and Upload Form */
+.login-container, .upload-container {
     max-width: 400px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #222;
-    color: white;
-    border-radius: 10px;
+    margin: 20px auto;
     text-align: center;
 }
 
-/* Search Bar */
-.search-bar {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.search-bar input {
+.login-container input, .upload-container input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
     padding: 10px;
-    width: 70%;
-    border-radius: 5px;
 }
 
-.search-bar button {
-    padding: 10px 20px;
-    background-color: #FF9900;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-/* Videos */
+/* Video Section */
 .videos {
-    margin: 20px;
+    margin: 20px auto;
 }
 
 .video-container {
@@ -77,71 +53,19 @@ nav ul li a {
 
 .video-frame {
     width: 100%;
-    max-width: 720px;  /* Ensure it doesn't exceed 720px */
-    aspect-ratio: 16/9;
     height: auto;
+    max-width: 720px;
+    aspect-ratio: 16 / 9;
     border: none;
 }
 
 .video-title {
     color: orange;
-    font-size: 1.5rem;
-    margin-top: 10px;
+    font-size: 1.2em;
 }
 
-/* Admin Dashboard */
-.admin-content {
-    padding: 20px;
-    text-align: center;
-}
-
-.admin-content h2 {
-    font-size: 2rem;
-    color: white;
-}
-
-.upload-section {
-    margin-top: 20px;
-    background-color: #222;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.upload-section input {
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    background-color: #444;
-    color: white;
-}
-
-.upload-section button {
-    padding: 10px;
-    background-color: #FF9900;
-    border: none;
-    color: white;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 5px;
-}
-
-/* Label Styling */
-label {
-    color: white;
-    font-size: 1rem;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.upload-section h3 {
-    color: orange;
-    text-align: left;
-}
-
-/* Video List */
-.video-list {
-    list-style-type: none;
-    padding: 0;
+/* Error Message */
+.error {
+    color: red;
+    font-size: 0.9em;
 }
