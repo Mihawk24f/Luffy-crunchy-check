@@ -84,19 +84,11 @@
             cursor: pointer;
         }
 
-        /* Video list styling */
-        .videos {
-            margin-top: 20px;
-        }
-
-        .videos h3, .videos p {
-            text-align: center;
-            margin: 10px 0;
-        }
-
-        .videos iframe {
-            display: block;
-            margin: 20px auto;
+        /* Fix for p tags to properly show video titles */
+        .videos p {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -109,12 +101,12 @@
     
     <div class="videos fade-in">
         <h3>Hot Videos:</h3>
-        <!-- Restore previous embedded videos with titles -->
-        <p>Video Title 1: Amazing Video</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        <!-- Fixed embedded video links and titles -->
+        <p>One Piece Episode 1071</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id1" frameborder="0" allowfullscreen></iframe>
         
-        <p>Video Title 2: Another Great Video</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3JZ_D3ELwOQ" frameborder="0" allowfullscreen></iframe>
+        <p>Attack on Titan Final Season Part 2</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id2" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <!-- Admin Login Page -->
@@ -185,8 +177,8 @@
 
             videos.forEach(video => {
                 if (video.textContent === title) {
-                    video.nextElementSibling.remove(); // Remove the iframe
-                    video.remove(); // Remove the title
+                    video.nextElementSibling.remove();
+                    video.remove();
                     alert('Video deleted successfully!');
                 }
             });
