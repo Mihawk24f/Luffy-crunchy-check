@@ -33,9 +33,12 @@ function uploadVideo(event) {
     const videoCategory = document.getElementById('videoCategory').value;
 
     if (videoUrl && videoTitle) {
+        // Convert the video URL to an embeddable link
+        const embedUrl = videoUrl.replace("watch?v=", "embed/");
+        
         // Store video details in local storage
         const videos = JSON.parse(localStorage.getItem('videos')) || [];
-        videos.push({ url: videoUrl, title: videoTitle, category: videoCategory });
+        videos.push({ url: embedUrl, title: videoTitle, category: videoCategory });
         localStorage.setItem('videos', JSON.stringify(videos));
 
         // Clear the input fields
@@ -59,7 +62,6 @@ function renderVideos() {
     videos.forEach(video => {
         const videoItem = document.createElement('div');
         videoItem.classList.add('video-container');
-        videoItem.setAttribute('data-title', video.title);
         videoItem.innerHTML = `
             <iframe class="video-frame" src="${video.url}?ff=1" allowfullscreen="true"></iframe>
             <p class="video-title">${video.title}</p>
