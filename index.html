@@ -1,140 +1,51 @@
-/* General Styling */
-body {
-    background: #000;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    color: white;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Luffy Hub</title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="N">LUFFY</h1><h1 class="H">HUB</h1>
+    </div>
+    <p class="intro-text">Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things And Premium Accounts Of Crunchyroll And Bla Bla Bla...</p>
+    
+    <div class="videos">
+        <h3>Hot Videos:</h3>
+        
+        <div class="video-container">
+            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" allowfullscreen="true"></iframe>
+            <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 01</p> 
+        </div>
+        <div class="video-container">
+            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyd?ff=1" allowfullscreen="true"></iframe>
+            <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 02 | Final</p>
+        </div>
+    </div>
+    
+    <div class="admin-login">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <label>
+                <input type="checkbox" id="rememberMe"> Remember Me
+            </label>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 
-/* Responsive Header */
-.header {
-    text-align: center;
-    margin-top: 20px;
-}
+    <div class="video-upload">
+        <h2>Add New Video</h2>
+        <form id="videoForm">
+            <input type="text" id="videoTitle" placeholder="Video Title" required>
+            <input type="text" id="videoLink" placeholder="Video Embed Link" required>
+            <button type="submit">Add Video</button>
+        </form>
+    </div>
 
-.H, .N {
-    display: inline-block;
-    font-size: 10vw;
-}
-
-.H {
-    background: #FF9900;
-    padding: 5px 10px;
-    color: black;
-}
-
-.N {
-    color: white;
-}
-
-/* Responsive Text */
-.intro-text {
-    color: orange;
-    font-size: 5vw;
-    line-height: 1.6;
-    text-align: center;
-    margin: 20px;
-}
-
-/* Video Section */
-h3 {
-    color: white;
-    text-align: center;
-    font-size: 4vw;
-    margin-top: 20px;
-}
-
-/* Video Container */
-.video-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.video-frame {
-    width: 100%;
-    height: auto;
-    max-width: 720px;
-    aspect-ratio: 16/9;
-    border: none;
-}
-
-/* Video Titles */
-.video-title {
-    color: orange;
-    font-size: 4vw;
-    line-height: 1.6;
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* Admin Login Section */
-.admin-login {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.admin-login input {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    width: 200px;
-}
-
-.admin-login button {
-    padding: 10px 20px;
-}
-
-/* Video Upload Section */
-.video-upload {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.video-upload input {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    width: 200px;
-}
-
-.video-upload button {
-    padding: 10px 20px;
-}
-
-/* Media Queries for Larger Screens */
-@media (min-width: 768px) {
-    .H, .N {
-        font-size: 8vw;
-    }
-
-    .intro-text {
-        font-size: 3vw;
-    }
-
-    .video-title {
-        font-size: 2.5vw;
-    }
-
-    h3 {
-        font-size: 3vw;
-    }
-}
-
-@media (min-width: 1024px) {
-    .H, .N {
-        font-size: 6vw;
-    }
-
-    .intro-text {
-        font-size: 2.5vw;
-    }
-
-    .video-title {
-        font-size: 2vw;
-    }
-
-    h3 {
-        font-size: 2.5vw;
-    }
-}
+    <script src="script.js"></script>
+</body>
+</html>
