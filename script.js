@@ -1,46 +1,49 @@
-// Store initial username and password in local storage
-if (!localStorage.getItem('username') && !localStorage.getItem('password')) {
-    localStorage.setItem('username', 'admin');
-    localStorage.setItem('password', 'admin123');
+// Initialize default admin credentials if not set
+if (!localStorage.getItem('adminUsername') && !localStorage.getItem('adminPassword')) {
+    localStorage.setItem('adminUsername', 'admin');
+    localStorage.setItem('adminPassword', 'admin123');
 }
 
-// Initialize videos from localStorage
+// Retrieve videos from localStorage or use default
 const videoList = JSON.parse(localStorage.getItem('videos')) || [
     { title: "Exclusive Hot Video | Premium Gold Exclusive Part 01", link: "https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" },
     { title: "Exclusive Hot Video | Premium Gold Exclusive Part 02 | Final", link: "https://go.screenpal.com/player/cZ6XfBVWOyd?ff=1" },
 ];
 
-// Function to render videos from localStorage
+// Function to render videos
 function renderVideos() {
-    const videoListElement = document.getElementById('videos');
-    videoListElement.innerHTML = '<h3>Hot Videos:</h3>';
+    const videosSection = document.getElementById('videos');
+    videosSection.innerHTML = '<h3>Hot Videos:</h3>'; // Reset content
+
     videoList.forEach(video => {
         const videoContainer = document.createElement('div');
         videoContainer.className = 'video-container';
         videoContainer.innerHTML = `
-            <iframe class="video-frame" src="${video.link}" allowfullscreen="true"></iframe>
+            <iframe class="video-frame" src="${video.link}" allowfullscreen></iframe>
             <p class="part1">${video.title}</p>
         `;
-        videoListElement.appendChild(videoContainer);
+        videosSection.appendChild(videoContainer);
     });
 }
 
-// Call render function to display videos on page load
-renderVideos();
+// Call renderVideos on page load
+document.addEventListener('DOMContentLoaded', renderVideos);
 
-// Admin login logic
+// Admin Login Function
 function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const storedUsername = localStorage.getItem('username');
-    const storedPassword = localStorage.getItem('password');
+    const usernameInput = document.getElementById('username').value.trim();
+    const passwordInput = document.getElementById('password').value.trim();
     const rememberMe = document.getElementById('rememberMe').checked;
 
-    if (username === storedUsername && password === storedPassword) {
-        document.querySelector('.video-form').style.display = 'flex';
-        document.querySelector('.admin-login').style.display = 'none';
+    const storedUsername = localStorage.getItem('adminUsername');
+    const storedPassword = localStorage.getItem('adminPassword');
 
-        // If "Remember Me" is checked, store the login state
+    if (usernameInput === storedUsername && passwordInput === storedPassword) {
+        // Hide login form and show video management
+        document.getElementById('login').style.display = 'none';
+        document.querySelector('.video-form').style.display = 'flex';
+
+        // If "Remember Me" is checked, keep user logged in
         if (rememberMe) {
             localStorage.setItem('isLoggedIn', 'true');
         }
@@ -49,37 +52,67 @@ function login() {
     }
 }
 
-// Check if the user is already logged in
-if (localStorage.getItem('isLoggedIn') === 'true') {
-    document.querySelector('.video-form').style.display = 'flex';
-    document.querySelector('.admin-login').style.display = 'none';
-}
-
-// Video management logic
-function addVideo() {
-    const title = document.getElementById('videoTitle').value;
-    const link = document.getElementById('videoLink').value;
-
-    if (title && link) {
-        videoList.push({ title: title, link: link });
-        localStorage.setItem('videos', JSON.stringify(videoList));
-        renderVideos();
-        alert('Video added successfully!');
-    } else {
-        alert('Please fill out both fields!');
+// Check if user is already logged in
+window.onload = function() {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        document.getElementById('login').style.display = 'none';
+        document.querySelector('.video-form').style.display = 'flex';
     }
+};
+
+// Function to add a new video
+function addVideo() {
+    const title = document.getElementById('videoTitle').value.trim();
+    let link = document.getElementById('videoLink').value.trim();
+
+    if (title === '' || link === '') {
+        alert('Please fill out both the title and URL fields.');
+        return;
+    }
+
+    // Convert YouTube direct links to embed links
+    if (link.includes('youtube.com/watch')) {
+        const urlParams = new URLSearchParams(new URL(link).search);
+        const videoID = urlParams.get('v');
+        if (videoID) {
+            link = `https://www.youtube.com/embed/${videoID}`;
+        } else {
+            alert('Invalid YouTube URL.');
+            return;
+        }
+    }
+
+    // Add new video to the list and update localStorage
+    videoList.push({ title: title, link: link });
+    localStorage.setItem('videos', JSON.stringify(videoList));
+
+    // Re-render videos
+    renderVideos();
+
+    // Clear input fields
+    document.getElementById('videoTitle').value = '';
+    document.getElementById('videoLink').value = '';
+
+    alert('Video added successfully!');
 }
 
+// Function to delete a video
 function deleteVideo() {
-    const title = document.getElementById('videoTitle').value;
+    const titleToDelete = prompt('Enter the exact title of the video you want to delete:');
 
-    const index = videoList.findIndex(video => video.title === title);
-    if (index > -1) {
+    if (!titleToDelete) {
+        alert('Deletion cancelled.');
+        return;
+    }
+
+    const index = videoList.findIndex(video => video.title === titleToDelete.trim());
+
+    if (index !== -1) {
         videoList.splice(index, 1);
         localStorage.setItem('videos', JSON.stringify(videoList));
         renderVideos();
         alert('Video deleted successfully!');
     } else {
-        alert('Video not found!');
+        alert('Video title not found. Please ensure you entered the correct title.');
     }
 }
