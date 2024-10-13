@@ -5,18 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LuffyHub</title>
     <style>
-        /* Dynamic animation styles */
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
         /* Heading styling to center it */
         .header {
             display: flex;
@@ -99,28 +87,6 @@
             cursor: pointer;
         }
 
-        /* Password update form */
-        .change-password {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 50px;
-        }
-
-        .change-password input {
-            padding: 10px;
-            margin: 5px;
-            width: 300px;
-        }
-
-        .change-password button {
-            padding: 10px 20px;
-            background-color: #FF5733;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
         /* Video list styling */
         .videos {
             margin-top: 20px;
@@ -191,13 +157,6 @@
         <button onclick="deleteVideo()">Delete Video</button>
     </div>
 
-    <!-- Change Password Form (Only accessible after login) -->
-    <div class="change-password" style="display:none;">
-        <h2>Change Password</h2>
-        <input type="password" id="newPassword" placeholder="New Password" />
-        <button onclick="changePassword()">Update Password</button>
-    </div>
-
     <script>
         // Store initial username and password in local storage
         if (!localStorage.getItem('username') && !localStorage.getItem('password')) {
@@ -216,8 +175,7 @@
                 const videoHTML = `
                     <p>${video.title}</p>
                     <iframe width="100%" height="100%" style="border:0;" scrolling="no" 
-                        src="${video.link}?width=100%&height=100%&ff=1&title=0&controls=1" 
-                        allowfullscreen="true"></iframe>`;
+                        src="${video.link}?controls=1" allowfullscreen="true"></iframe>`;
                 videoListElement.innerHTML += videoHTML;
             });
         }
@@ -235,7 +193,6 @@
 
             if (username === storedUsername && password === storedPassword) {
                 document.querySelector('.video-form').style.display = 'flex';
-                document.querySelector('.change-password').style.display = 'flex';
                 document.querySelector('.admin-login').style.display = 'none';
 
                 // If "Remember Me" is checked, store the login state
@@ -250,7 +207,6 @@
         // Check if the user is already logged in
         if (localStorage.getItem('isLoggedIn') === 'true') {
             document.querySelector('.video-form').style.display = 'flex';
-            document.querySelector('.change-password').style.display = 'flex';
             document.querySelector('.admin-login').style.display = 'none';
         }
 
@@ -281,4 +237,11 @@
 
             if (videoIndex > -1) {
                 videoList.splice(videoIndex, 1);
-                localStorage.setItem('videos', JSON.stringify(video
+                localStorage.setItem('videos', JSON.stringify(videoList));
+                renderVideos();
+                alert('Video deleted successfully!');
+            }
+        }
+    </script>
+</body>
+</html>
