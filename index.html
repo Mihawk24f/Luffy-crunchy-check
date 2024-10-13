@@ -5,49 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <title>LuffyHub</title>
+    <style>
+        /* Dynamic animation styles */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Admin login form styling */
+        .admin-login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        .admin-login input {
+            padding: 10px;
+            margin: 5px;
+            width: 300px;
+        }
+
+        .admin-login button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Video management form */
+        .video-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .video-form input, .video-form textarea {
+            padding: 10px;
+            margin: 5px;
+            width: 300px;
+        }
+
+        .video-form button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Password update form */
+        .change-password {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .change-password input {
+            padding: 10px;
+            margin: 5px;
+            width: 300px;
+        }
+
+        .change-password button {
+            padding: 10px 20px;
+            background-color: #FF5733;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
+    <div class="header fade-in">
         <h1 class="N">LUFFY</h1><h1 class="H">HUB</h1>
     </div>
     
-    <p class="intro-text">Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things...</p>
+    <p class="intro-text fade-in">Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things...</p>
     
-    <div class="videos">
+    <div class="videos fade-in">
         <h3>Hot Videos:</h3>
-        <div class="video-container">
-            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" allowfullscreen></iframe>
-            <p class="part1">Exclusive Hot Video | Premium Gold Exclusive Part 01</p> 
-        </div>
-        <br>
-        <div class="video-container">
-            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyd?ff=1" allowfullscreen></iframe>
-            <p class="part2">Exclusive Hot Video | Premium Gold Exclusive Part 02 | Final</p>
-        </div>
+        <!-- Embedded video links from existing content -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="generate-section">
-        <h3>Generate Crunchyroll Account</h3>
-        <input type="text" id="accountBox" readonly placeholder="Your generated email:password will appear here">
-        <button onclick="fetchAccounts()">Generate</button>
+    <!-- Admin Login Page -->
+    <div class="admin-login">
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Video Management Page (Only accessible after login) -->
+    <div class="video-form" style="display:none;">
+        <h2>Manage Videos</h2>
+        <input type="text" id="videoTitle" placeholder="Video Title" />
+        <textarea id="videoLink" placeholder="Embedded Video Link"></textarea>
+        <button onclick="addVideo()">Add Video</button>
+        <button onclick="deleteVideo()">Delete Video</button>
+    </div>
+
+    <!-- Change Password Form (Only accessible after login) -->
+    <div class="change-password" style="display:none;">
+        <h2>Change Password</h2>
+        <input type="password" id="newPassword" placeholder="New Password" />
+        <button onclick="changePassword()">Update Password</button>
     </div>
 
     <script>
-    function fetchAccounts() {
-        fetch('accounts.json')
-        .then(response => response.json())  // Parse the JSON response
-        .then(data => {
-            const accounts = data.accounts;
-            if (accounts.length > 0) {
-                // Select a random account from the list
-                const randomAccount = accounts[Math.floor(Math.random() * accounts.length)];
-                document.getElementById("accountBox").value = randomAccount;
+        // Store initial username and password in local storage
+        if (!localStorage.getItem('username') && !localStorage.getItem('password')) {
+            localStorage.setItem('username', 'admin');
+            localStorage.setItem('password', 'admin123');
+        }
+
+        // Admin login logic
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            if (username === storedUsername && password === storedPassword) {
+                document.querySelector('.video-form').style.display = 'flex';
+                document.querySelector('.change-password').style.display = 'flex';
+                document.querySelector('.admin-login').style.display = 'none';
             } else {
-                document.getElementById("accountBox").value = "No accounts available";
+                alert('Invalid login credentials!');
             }
-        })
-        .catch(error => console.error('Error fetching accounts:', error));
-    }
+        }
+
+        // Video management logic
+        function addVideo() {
+            const title = document.getElementById('videoTitle').value;
+            const link = document.getElementById('videoLink').value;
+            const videoContainer = document.querySelector('.videos');
+
+            if (title && link) {
+                const videoHTML = `<h4>${title}</h4><iframe width="560" height="315" src="${link}" frameborder="0" allowfullscreen></iframe>`;
+                videoContainer.innerHTML += videoHTML;
+                alert('Video added successfully!');
+            } else {
+                alert('Please fill out both fields!');
+            }
+        }
+
+        function deleteVideo() {
+            const title = prompt('Enter the title of the video to delete:');
+            const videos = document.querySelectorAll('.videos h4');
+
+            videos.forEach(video => {
+                if (video.textContent === title) {
+                    video.nextElementSibling.remove();
+                    video.remove();
+                    alert('Video deleted successfully!');
+                }
+            });
+        }
+
+        // Change password logic
+        function changePassword() {
+            const newPassword = document.getElementById('newPassword').value;
+
+            if (newPassword) {
+                localStorage.setItem('password', newPassword);
+                alert('Password updated successfully!');
+            } else {
+                alert('Please enter a new password!');
+            }
+        }
     </script>
 </body>
 </html>
