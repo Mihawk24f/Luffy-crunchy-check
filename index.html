@@ -4,61 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
-    <title>Luffy Hub</title>
+    <title>Video Hub</title>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <h1>LUFFY <span>HUB</span></h1>
-        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="admin.html">Admin Login</a></li>
             </ul>
         </nav>
+        <h1 class="site-title">Video Hub</h1>
     </header>
 
-    <div class="intro">
-        <p>Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things And Premium Accounts Of Crunchyroll And Bla Bla Bla...</p>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for videos...">
+        <button onclick="searchVideos()">Search</button>
     </div>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search for videos..." oninput="searchVideos()">
-    </div>
-    
-    <div class="videos" id="videoList">
-        <h2>Hot Videos:</h2>
-        
-        <div class="video-container">
+    <div class="videos">
+        <h3>Hot Videos:</h3>
+
+        <!-- Video Container (Example) -->
+        <div class="video-container" data-title="Exclusive Hot Video Part 1">
             <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" allowfullscreen="true"></iframe>
-            <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 01</p> 
-        </div>
-        
-        <div class="video-container">
-            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyd?ff=1" allowfullscreen="true"></iframe>
-            <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 02 | Final</p>
+            <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 01</p>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Luffy Hub. All rights reserved.</p>
-    </footer>
-
-    <script>
-        function searchVideos() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const videos = document.querySelectorAll('.video-container');
-
-            videos.forEach(video => {
-                const title = video.querySelector('.video-title').innerText.toLowerCase();
-                if (title.includes(input)) {
-                    video.style.display = '';
-                } else {
-                    video.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="video-script.js"></script>
 </body>
 </html>
