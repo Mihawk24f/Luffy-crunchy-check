@@ -8,41 +8,24 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#" onclick="logout()">Logout</a></li>
-            </ul>
-        </nav>
+        <h1>Admin Dashboard</h1>
+        <button onclick="logout()">Logout</button>
     </header>
+    
+    <div class="upload-container">
+        <h2>Upload Video</h2>
+        <form onsubmit="uploadVideo(event)">
+            <input type="text" id="videoUrl" placeholder="Video URL" required>
+            <input type="text" id="videoTitle" placeholder="Video Title" required>
+            <input type="text" id="videoCategory" placeholder="Video Category">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
 
-    <div class="admin-content">
-        <h2>Welcome to the Admin Dashboard</h2>
-        <p>Here you can manage videos.</p>
-
-        <!-- Video Management Section -->
-        <div class="upload-section">
-            <h3>Upload Video</h3>
-            <form>
-                <label for="videoUrl">Video URL:</label>
-                <input type="text" id="videoUrl" name="videoUrl" placeholder="Enter the video URL" required>
-                
-                <label for="videoTitle">Video Title:</label>
-                <input type="text" id="videoTitle" name="videoTitle" placeholder="Enter the video title" required>
-                
-                <label for="videoCategory">Video Category:</label>
-                <input type="text" id="videoCategory" name="videoCategory" placeholder="Enter the video category" required>
-                
-                <button type="submit" onclick="uploadVideo()">Upload Video</button>
-            </form>
-        </div>
-
-        <!-- Uploaded Videos -->
-        <div class="video-list">
-            <h3>Uploaded Videos</h3>
-            <ul id="videoList">
-                <!-- Dynamically filled by JavaScript -->
-            </ul>
+    <div class="videos">
+        <h3>Uploaded Videos:</h3>
+        <div id="videoList">
+            <!-- Videos will be dynamically filled here -->
         </div>
     </div>
 
