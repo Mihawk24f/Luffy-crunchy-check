@@ -141,18 +141,8 @@
     
     <p class="intro-text fade-in">Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things...</p>
     
-    <div class="videos fade-in">
+    <div class="videos fade-in" id="videoList">
         <h3>Hot Videos:</h3>
-        <!-- Existing embedded videos -->
-        <p>One Piece Episode 1</p>
-        <iframe width="100%" height="100%" style="border:0;" scrolling="no" 
-                src="https://go.screenpal.com/player/cZ6XfBVWOyJ?width=100%&height=100%&ff=1&title=0&controls=1" 
-                allowfullscreen="true"></iframe>
-        
-        <p>One Piece Episode 2</p>
-        <iframe width="100%" height="100%" style="border:0;" scrolling="no" 
-                src="https://go.screenpal.com/player/cZ6XfBVWOyJ?width=100%&height=100%&ff=1&title=0&controls=1" 
-                allowfullscreen="true"></iframe>
     </div>
 
     <!-- Admin Login Page -->
@@ -186,6 +176,26 @@
             localStorage.setItem('password', 'admin123');
         }
 
+        // Initialize videos from localStorage
+        const videoList = JSON.parse(localStorage.getItem('videos')) || [];
+        const videoListElement = document.getElementById('videoList');
+
+        // Function to render videos from localStorage
+        function renderVideos() {
+            videoListElement.innerHTML = '';
+            videoList.forEach(video => {
+                const videoHTML = `
+                    <p>${video.title}</p>
+                    <iframe width="100%" height="100%" style="border:0;" scrolling="no" 
+                        src="${video.link}?width=100%&height=100%&ff=1&title=0&controls=1" 
+                        allowfullscreen="true"></iframe>`;
+                videoListElement.innerHTML += videoHTML;
+            });
+        }
+
+        // Call render function to display videos on page load
+        renderVideos();
+
         // Admin login logic
         function login() {
             const username = document.getElementById('username').value;
@@ -206,15 +216,11 @@
         function addVideo() {
             const title = document.getElementById('videoTitle').value;
             const link = document.getElementById('videoLink').value;
-            const videoContainer = document.querySelector('.videos');
 
             if (title && link) {
-                const videoHTML = `<p>${title}</p>`;
-                const iframe = `<iframe width="100%" height="100%" style="border:0;" scrolling="no" 
-                                src="${link}?width=100%&height=100%&ff=1&title=0&controls=1" 
-                                allowfullscreen="true"></iframe>`;
-
-                videoContainer.innerHTML += videoHTML + iframe;
+                videoList.push({ title: title, link: link });
+                localStorage.setItem('videos', JSON.stringify(videoList));
+                renderVideos();
                 alert('Video added successfully!');
             } else {
                 alert('Please fill out both fields!');
@@ -223,22 +229,12 @@
 
         function deleteVideo() {
             const titleToDelete = prompt('Enter the title of the video to delete:');
-            const titles = document.querySelectorAll('.videos p');
+            const videoIndex = videoList.findIndex(video => video.title === titleToDelete);
 
-            let videoDeleted = false;
-
-            titles.forEach((title, index) => {
-                if (title.textContent === titleToDelete) {
-                    const videoIframe = title.nextElementSibling;
-                    if (videoIframe && videoIframe.tagName === "IFRAME") {
-                        videoIframe.remove();  // Remove iframe (video)
-                        title.remove();  // Remove title
-                        videoDeleted = true;
-                    }
-                }
-            });
-
-            if (videoDeleted) {
+            if (videoIndex > -1) {
+                videoList.splice(videoIndex, 1);
+                localStorage.setItem('videos', JSON.stringify(videoList));
+                renderVideos();
                 alert('Video deleted successfully!');
             } else {
                 alert('Video title not found!');
