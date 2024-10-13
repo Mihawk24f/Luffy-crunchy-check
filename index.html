@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
     <title>LuffyHub</title>
     <style>
         /* Dynamic animation styles */
@@ -131,7 +130,7 @@
         .videos p {
             font-size: 1.2em;
             margin-bottom: 10px;
-            color: orange; /* Change title color to orange */
+            color: orange; /* Title color changed to orange */
         }
 
         .videos iframe {
@@ -282,6 +281,4 @@
 
             if (videoIndex > -1) {
                 videoList.splice(videoIndex, 1);
-                localStorage.setItem('videos', JSON.stringify(videoList));
-                renderVideos();
-                alert('Video deleted successfully!');
+                localStorage.setItem('videos', JSON.stringify(video
