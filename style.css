@@ -70,7 +70,7 @@ nav a:hover {
 .video-frame {
     width: 100%;
     max-width: 720px;
-    height: 400px;
+    height: 400px; /* Fixed height for better responsiveness */
     border: none;
 }
 
@@ -131,5 +131,42 @@ footer {
 @media (max-width: 768px) {
     .video-frame {
         height: 250px; /* Adjust height for smaller screens */
+    }
+
+    .intro p {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+    }
+
+    .video-title {
+        font-size: 1em; /* Adjust video title font size */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav a {
+        font-size: 1em;
+        margin: 5px 0; /* Add space between links */
+    }
+
+    .video-title {
+        font-size: 0.9em; /* Further adjust for very small screens */
+    }
+
+    .admin-login input, .video-upload input {
+        font-size: 0.9em; /* Adjust input sizes for smaller screens */
+    }
+
+    .admin-login button, .video-upload button {
+        font-size: 0.9em; /* Adjust button sizes for smaller screens */
     }
 }
