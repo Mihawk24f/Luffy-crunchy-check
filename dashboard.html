@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="admin-content">
+        <h2>Welcome to the Admin Dashboard</h2>
+        <p>Here you can manage videos.</p>
+
+        <!-- Video Management Section -->
+        <div class="upload-section">
+            <h3>Upload Video</h3>
+            <form>
+                <label for="videoUrl">Video URL:</label>
+                <input type="text" id="videoUrl" name="videoUrl" required>
+                <label for="videoTitle">Title:</label>
+                <input type="text" id="videoTitle" name="videoTitle" required>
+                <label for="videoCategory">Category:</label>
+                <input type="text" id="videoCategory" name="videoCategory" required>
+                <button type="submit" onclick="uploadVideo()">Upload Video</button>
+            </form>
+        </div>
+
+        <!-- Uploaded Videos -->
+        <div class="video-list">
+            <h3>Uploaded Videos</h3>
+            <ul id="videoList">
+                <!-- Dynamically filled by JavaScript -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="video-script.js"></script>
+</body>
+</html>
