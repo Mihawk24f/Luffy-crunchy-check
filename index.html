@@ -13,25 +13,24 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="admin.html">Admin Login</a></li>
-                <li><a href="javascript:void(0);" id="logout-button" style="display:none;">Logout</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="intro">
-        <p>Here You Will Find Nothing. But Sometime I Might Upload Some Crazy Things And Premium Accounts Of Crunchyroll And Bla Bla Bla...</p>
+        <p>Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things And Premium Accounts Of Crunchyroll And Bla Bla Bla...</p>
     </div>
-
+    
     <div class="videos">
         <h2>Hot Videos:</h2>
         
-        <!-- Video Container -->
         <div class="video-container">
             <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" allowfullscreen="true"></iframe>
             <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 01</p> 
         </div>
+        
         <div class="video-container">
             <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyd?ff=1" allowfullscreen="true"></iframe>
             <p class="video-title">Exclusive Hot Video | Premium Gold Exclusive Part 02 | Final</p>
@@ -41,23 +40,5 @@
     <footer>
         <p>&copy; 2024 Luffy Hub. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Simulating admin login status
-        let isLoggedIn = false; // Change this to true to simulate admin being logged in.
-
-        // Check login status and show/hide logout button
-        const logoutButton = document.getElementById('logout-button');
-        if (isLoggedIn) {
-            logoutButton.style.display = 'block';
-        }
-
-        // Logout function (this will just reset the login status)
-        logoutButton.addEventListener('click', () => {
-            isLoggedIn = false;
-            alert('Logged out successfully!');
-            logoutButton.style.display = 'none';
-        });
-    </script>
 </body>
-        </html>
+</html>
