@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>LuffyHub</title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="N">LUFFY</h1><h1 class="H">HUB</h1>
+    </div>
+    
+    <p class="intro-text">Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things...</p>
+    
+    <div class="videos">
+        <h3>Hot Videos:</h3>
+        <div class="video-container">
+            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyJ?ff=1" allowfullscreen></iframe>
+            <p class="part1">Exclusive Hot Video | Premium Gold Exclusive Part 01</p> 
+        </div>
+        <br>
+        <div class="video-container">
+            <iframe class="video-frame" src="https://go.screenpal.com/player/cZ6XfBVWOyd?ff=1" allowfullscreen></iframe>
+            <p class="part2">Exclusive Hot Video | Premium Gold Exclusive Part 02 | Final</p>
+        </div>
+    </div>
+
+    <div class="generate-section">
+        <h3>Generate Crunchyroll Account</h3>
+        <input type="text" id="accountBox" readonly placeholder="Your generated email:password will appear here">
+        <button onclick="fetchAccounts()">Generate</button>
+    </div>
+
+    <script>
+    function fetchAccounts() {
+        fetch('accounts.json')
+        .then(response => response.json())  // Parse the JSON response
+        .then(data => {
+            const accounts = data.accounts;
+            if (accounts.length > 0) {
+                // Select a random account from the list
+                const randomAccount = accounts[Math.floor(Math.random() * accounts.length)];
+                document.getElementById("accountBox").value = randomAccount;
+            } else {
+                document.getElementById("accountBox").value = "No accounts available";
+            }
+        })
+        .catch(error => console.error('Error fetching accounts:', error));
+    }
+    </script>
+</body>
+</html>
