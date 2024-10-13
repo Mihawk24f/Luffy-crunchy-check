@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Admin Login</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>LUFFY <span>HUB</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" id="logout-button">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="admin-login">
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Luffy Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simulated login check
+            if (username === 'admin' && password === 'password') { // Change 'admin' and 'password' as needed
+                alert('Login successful!');
+                window.location.href = 'index.html'; // Redirect to homepage or admin dashboard
+            } else {
+                alert('Incorrect username or password');
+            }
+        }
+    </script>
+</body>
+</html>
