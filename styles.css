@@ -1,77 +1,111 @@
-/* General body styling */
+/* General Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1c1c1c; /* Dark background to match old design */
-    color: white; /* Text color to contrast with the dark background */
+    background: black;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* Header styling */
+/* Responsive Header */
 .header {
     text-align: center;
     margin-top: 20px;
 }
 
-.N {
-    color: #ff7700;
-    font-size: 4rem;
+.H, .N {
+    display: inline-block;
+    font-size: 10vw; /* Responsive to screen size */
 }
 
 .H {
-    color: white;
-    font-size: 4rem;
-}
-
-/* Menu bar styling */
-.menu {
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-    padding: 10px;
-}
-
-.menu a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-}
-
-.menu a:hover {
-    background-color: #ddd;
+    background: #FF9900;
+    padding: 5px 10px;
     color: black;
 }
 
-/* Intro text styling */
+.N {
+    color: white;
+}
+
+/* Responsive Text */
 .intro-text {
+    color: orange;
+    font-size: 5vw;
+    line-height: 1.6;
     text-align: center;
-    font-size: 1.5rem;
-    margin-top: 20px;
-    color: #ccc;
+    margin: 20px;
 }
 
-/* Videos section */
-.videos {
+/* Video Section */
+h3 {
+    color: white;
     text-align: center;
+    font-size: 4vw;
     margin-top: 20px;
 }
 
-.videos h3 {
-    font-size: 2rem;
-    color: #ff7700;
+/* Video Container */
+.video-container {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Video iframe styling */
-.videos iframe {
-    width: 80%;
-    max-width: 800px;
-    height: 400px;
-    margin: 20px 0;
+/* Ensure iframe fills parent container */
+.video-frame {
+    width: 100%;
+    height: auto;
+    max-width: 720px;
+    aspect-ratio: 16/9;
+    border: none;
 }
 
-/* Admin Login styling */
+/* Video Descriptions */
+.part1, .part2 {
+    color: orange;
+    font-size: 4vw;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    .H, .N {
+        font-size: 8vw;
+    }
+
+    .intro-text {
+        font-size: 3vw;
+    }
+
+    .part1, .part2 {
+        font-size: 2.5vw;
+    }
+
+    h3 {
+        font-size: 3vw;
+    }
+}
+
+@media (min-width: 1024px) {
+    .H, .N {
+        font-size: 6vw;
+    }
+
+    .intro-text {
+        font-size: 2.5vw;
+    }
+
+    .part1, .part2 {
+        font-size: 2vw;
+    }
+
+    h3 {
+        font-size: 2.5vw;
+    }
+}
+
+/* Admin Login and Video Management */
 .admin-login {
     display: flex;
     flex-direction: column;
@@ -121,14 +155,10 @@ body {
     cursor: pointer;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 2.5rem;
-    }
-
-    .videos iframe {
-        width: 100%;
-        height: 250px;
-    }
+/* Video list */
+.videos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
