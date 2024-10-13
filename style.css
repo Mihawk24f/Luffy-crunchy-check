@@ -1,111 +1,123 @@
 /* General Styling */
 body {
-    background: #111; /* Dark background for contrast */
+    background: black;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    color: white; /* Default text color */
 }
 
-/* Header Styling */
+/* Header */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: #333;
     padding: 20px;
-    background: #222; /* Slightly lighter dark background */
-}
-
-.logo h1 {
-    font-size: 2.5rem; /* Responsive size */
-    margin: 0;
+    text-align: center;
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
-    margin: 0;
-    display: flex;
 }
 
 nav ul li {
-    margin-left: 20px; /* Space between menu items */
+    display: inline;
+    margin: 0 10px;
 }
 
-nav a {
-    color: #FF9900; /* Menu link color */
+nav ul li a {
+    color: white;
     text-decoration: none;
+    font-size: 1.2rem;
 }
 
-/* Intro Text */
-.intro {
+.site-title {
+    color: orange;
+    font-size: 2.5rem;
+}
+
+/* Login Form */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Search Bar */
+.search-bar {
     text-align: center;
     margin: 20px 0;
 }
 
-/* Search Container */
-.search-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
-#searchInput {
-    width: 80%; /* Full width on mobile */
-    max-width: 400px; /* Max width for larger screens */
+.search-bar input {
     padding: 10px;
-    font-size: 1rem; /* Font size */
-    border: 1px solid #FF9900; /* Border color */
-    border-radius: 5px; /* Rounded corners */
-    outline: none; /* Remove default outline */
+    width: 70%;
+    border-radius: 5px;
 }
 
-/* Videos Section */
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #FF9900;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Videos */
 .videos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px; /* Margin around video section */
+    margin: 20px;
 }
 
 .video-container {
-    margin-bottom: 20px; /* Space between videos */
     text-align: center;
-    width: 100%; /* Ensure full width */
+    margin-bottom: 20px;
 }
 
 .video-frame {
     width: 100%;
-    height: auto;
-    max-width: 720px; /* Max width of video */
-    aspect-ratio: 16/9; /* Aspect ratio for videos */
-    border: none; /* No border */
+    max-width: 720px;
+    height: 405px;
 }
 
-/* Video Title */
 .video-title {
-    color: orange; /* Title color */
-    font-size: 1.2rem; /* Font size for titles */
-    margin-top: 10px; /* Space above title */
+    color: orange;
+    font-size: 1.5rem;
+    margin-top: 10px;
 }
 
-/* Footer Styling */
-footer {
+/* Admin Dashboard */
+.admin-content {
+    padding: 20px;
     text-align: center;
-    padding: 10px 0;
-    background: #222; /* Background for footer */
 }
 
-/* Responsive Media Queries */
-@media (max-width: 768px) {
-    .logo h1 {
-        font-size: 2rem; /* Smaller logo on mobile */
-    }
+.admin-content h2 {
+    font-size: 2rem;
+    color: white;
+}
 
-    #searchInput {
-        width: 90%; /* Wider search input on mobile */
-    }
+.upload-section {
+    margin-top: 20px;
+}
 
-    .video-title {
-        font-size: 1rem; /* Smaller titles on mobile */
-    }
+.upload-section input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.upload-section button {
+    padding: 10px;
+    background-color: #FF9900;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Video List */
+.video-list {
+    list-style-type: none;
+    padding: 0;
 }
