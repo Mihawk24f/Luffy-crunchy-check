@@ -22,8 +22,12 @@
     <div class="intro">
         <p>Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things And Premium Accounts Of Crunchyroll And Bla Bla Bla...</p>
     </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for videos..." oninput="searchVideos()">
+    </div>
     
-    <div class="videos">
+    <div class="videos" id="videoList">
         <h2>Hot Videos:</h2>
         
         <div class="video-container">
@@ -40,5 +44,21 @@
     <footer>
         <p>&copy; 2024 Luffy Hub. All rights reserved.</p>
     </footer>
+
+    <script>
+        function searchVideos() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const videos = document.querySelectorAll('.video-container');
+
+            videos.forEach(video => {
+                const title = video.querySelector('.video-title').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    video.style.display = '';
+                } else {
+                    video.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
