@@ -1,40 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <title>LuffyHub</title>
-</head>
-<body>
-    <div class="header">
-        <h1 class="N">LUFFY</h1><h1 class="H">HUB</h1>
-    </div>
-    <p class="intro-text">Here You Will Find Nothing. But Sometimes I Might Upload Some Crazy Things And Premium Accounts Of Crunchyroll And Bla Bla Bla...</p>
-    
-    <div class="videos" id="videos">
-        <h3>Hot Videos:</h3>
-        <!-- Videos will be dynamically inserted here -->
-    </div>
+/* General Styling */
+body {
+    background: #000;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+}
 
-    <!-- Admin Login Page -->
-    <div class="admin-login" id="login">
-        <h2>Admin Login</h2>
-        <input type="text" id="username" placeholder="Username" />
-        <input type="password" id="password" placeholder="Password" />
-        <label><input type="checkbox" id="rememberMe"> Remember Me</label>
-        <button onclick="login()">Login</button>
-    </div>
+/* Responsive Header */
+.header {
+    text-align: center;
+    margin-top: 20px;
+}
 
-    <!-- Video Management Page (Only accessible after login) -->
-    <div class="video-form" style="display:none;">
-        <h2>Manage Videos</h2>
-        <input type="text" id="videoTitle" placeholder="Video Title" />
-        <input type="text" id="videoLink" placeholder="Video URL" />
-        <button onclick="addVideo()">Add Video</button>
-        <button onclick="deleteVideo()">Delete Video</button>
-    </div>
+.H, .N {
+    display: inline-block;
+    font-size: 10vw;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.H {
+    background: #FF9900;
+    padding: 5px 10px;
+    color: black;
+}
+
+.N {
+    color: white;
+}
+
+/* Responsive Text */
+.intro-text {
+    color: orange;
+    font-size: 5vw;
+    line-height: 1.6;
+    text-align: center;
+    margin: 20px;
+}
+
+/* Video Section */
+h3 {
+    color: white;
+    text-align: center;
+    font-size: 4vw;
+    margin-top: 20px;
+}
+
+/* Video Container */
+.video-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-frame {
+    width: 100%;
+    height: auto;
+    max-width: 720px;
+    aspect-ratio: 16/9;
+    border: none;
+}
+
+/* Video Titles */
+.video-title {
+    color: orange;
+    font-size: 4vw;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Admin Login Section */
+.admin-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.admin-login input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 200px;
+}
+
+.admin-login button {
+    padding: 10px 20px;
+}
+
+/* Video Upload Section */
+.video-upload {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.video-upload input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 200px;
+}
+
+.video-upload button {
+    padding: 10px 20px;
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    .H, .N {
+        font-size: 8vw;
+    }
+
+    .intro-text {
+        font-size: 3vw;
+    }
+
+    .video-title {
+        font-size: 2.5vw;
+    }
+
+    h3 {
+        font-size: 3vw;
+    }
+}
+
+@media (min-width: 1024px) {
+    .H, .N {
+        font-size: 6vw;
+    }
+
+    .intro-text {
+        font-size: 2.5vw;
+    }
+
+    .video-title {
+        font-size: 2vw;
+    }
+
+    h3 {
+        font-size: 2.5vw;
+    }
+}
